@@ -42,7 +42,7 @@
       background: var(--bg-cream);
     }
 
-    /* ШАПКА В СТИЛЕ ПОСТЕРОВ */
+    /* ШАПКА */
     .header {
       display: flex;
       justify-content: space-between;
@@ -158,24 +158,175 @@
       color: var(--brand-orange);
     }
 
-    .banner-music {
-      background: linear-gradient(90deg, #FFEFEA 0%, #FFF7E3 100%);
-      border-left: 6px solid var(--brand-orange);
-      color: #8C2C0E;
-      margin-top: 16px;
-    }
-
     .banner-time {
       font-weight: 800;
       padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 30px;
       white-space: nowrap;
       font-size: 13px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      color: var(--brand-dark-green);
     }
 
-    /* ТАБЛИЦА РАСПИСАНИЯ */
+    /* МУЗЫКАЛЬНЫЙ БАННЕР С ВЫПАДАЮЩИМ ОПИСАНИЕМ */
+    .music-details {
+      background: linear-gradient(135deg, #FFF6F2 0%, #FFFDF7 100%);
+      border-left: 6px solid var(--brand-orange);
+      border-radius: 18px;
+      padding: 14px 24px;
+      margin-top: 20px;
+      box-shadow: 0 4px 16px rgba(235, 94, 52, 0.08);
+      border: 1px solid #F3DEC9;
+    }
+
+    .music-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+    }
+
+    .music-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .music-main-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #7B2A0F;
+    }
+
+    .music-link {
+      color: #9C3312;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 800;
+      transition: color 0.2s;
+    }
+
+    .music-link:hover {
+      color: var(--brand-orange);
+    }
+
+    .music-expand-toggle {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-orange);
+      background: #FFEBE3;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+
+    .music-details[open] .music-expand-toggle {
+      background: var(--brand-orange);
+      color: #FFFFFF;
+    }
+
+    .music-body {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(235, 94, 52, 0.35);
+      color: #2F2A24;
+      line-height: 1.6;
+    }
+
+    .music-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .music-gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border: 1px solid #ECE7D9;
+    }
+
+    .music-section-block {
+      margin-bottom: 14px;
+    }
+
+    .music-section-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--brand-orange);
+      margin-bottom: 4px;
+    }
+
+    .music-section-text {
+      font-size: 14px;
+      color: #3B362F;
+    }
+
+    .music-section-text a {
+      color: var(--brand-olive);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .music-section-text a:hover {
+      color: var(--brand-green);
+    }
+
+    .music-final-phrase {
+      font-size: 14.5px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--brand-dark-green);
+      margin: 16px 0;
+    }
+
+    .music-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .btn-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 1px solid #E4DFD3;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--brand-dark-green);
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+    }
+
+    .btn-social:hover {
+      border-color: var(--brand-orange);
+      color: var(--brand-orange);
+      transform: translateY(-1px);
+    }
+
+    .btn-social svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ТАБЛИЦА */
     .schedule-table-wrapper {
       overflow-x: auto;
       background: #FFFFFF;
@@ -248,7 +399,6 @@
       border: 1px solid #DFD9CB;
     }
 
-    /* КАРТОЧКА СОБЫТИЯ ПО ИЕРАРХИИ */
     .event-card {
       display: flex;
       flex-direction: column;
@@ -306,10 +456,21 @@
       font-weight: 700;
     }
 
-    @media print {
-      body { padding: 0; background: #FFF; }
-      .container { max-width: 100%; }
-      .schedule-table-wrapper { box-shadow: none; border: none; }
+    @media (max-width: 768px) {
+      .music-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .music-expand-toggle {
+        margin-left: 0;
+      }
+      .music-gallery {
+        grid-template-columns: 1fr;
+      }
+      .music-gallery img {
+        height: 220px;
+      }
     }
   </style>
 </head>
@@ -338,7 +499,7 @@
 
     <div class="banner-event banner-intro" style="margin-bottom: 20px;">
       <span class="banner-time">11:30 – 11:50</span>
-      <span>Вступительное слово организаторов и Притча «Адам и Ева» от <strong>Галины Еде</strong></span>
+      <span>Вступительное слово организаторов и Притча «Адам и Ева» от <strong>Галины Еде</strong>[span_0](start_span)[span_0](end_span)</span>
     </div>
 
     <!-- ТАБЛИЦА РАСПИСАНИЯ ПО ЗОНАМ -->
@@ -360,39 +521,39 @@
 
           <!-- 12:00 - 12:50 -->
           <tr>
-            <td class="td-time">12:00 – 12:50</td>
+            <td class="td-time">12:00 – 12:50[span_1](start_span)[span_1](end_span)</td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Контакт с собой»</div>
-                <div class="event-type">Комплекс телесных и дыхательных практик</div>
-                <div class="event-author">Оксана Шафранская</div>
+                <div class="event-title">«Контакт с собой»[span_2](start_span)[span_2](end_span)</div>
+                <div class="event-type">Комплекс телесных и дыхательных практик[span_3](start_span)[span_3](end_span)</div>
+                <div class="event-author">Оксана Шафранская[span_4](start_span)[span_4](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Цвета снаружи гармония внутри»</div>
-                <div class="event-type">Творческий мастер-класс</div>
-                <div class="event-author">Марина Рыбка</div>
+                <div class="event-type">Творческий мастер-класс[span_5](start_span)[span_5](end_span)</div>
+                <div class="event-author">Марина Рыбка[span_6](start_span)[span_6](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Я и мой ресурс»</div>
-                <div class="event-type">МАК-сессия</div>
+                <div class="event-title">«Я и мой ресурс»[span_7](start_span)[span_7](end_span)</div>
+                <div class="event-type">МАК-сессия[span_8](start_span)[span_8](end_span)</div>
                 <div class="event-author">Е. Сорокина</div>
               </div>
             </td>
             <td>
               <div class="event-card">
                 <div class="event-title">Аромасессия «Бодрость»</div>
-                <div class="event-type">Аромасессия</div>
-                <div class="event-author">Анастасия Туманова</div>
+                <div class="event-type">Аромасессия[span_9](start_span)[span_9](end_span)</div>
+                <div class="event-author">Анастасия Туманова[span_10](start_span)[span_10](end_span)</div>
               </div>
             </td>
             <td class="empty-slot">—</td>
             <td>
               <div class="event-card">
-                <div class="event-title">Куклотерапия</div>
+                <div class="event-title">Куклотерапия[span_11](start_span)[span_11](end_span)</div>
                 <div class="event-type">Творческая терапия</div>
                 <div class="event-author">Валерия Александрова, Алёна Вереск</div>
               </div>
@@ -400,34 +561,34 @@
             <td>
               <div class="event-card">
                 <div class="event-title">«Автор жизни»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Юлия Софийская</div>
+                <div class="event-type">Трансформационная игра[span_12](start_span)[span_12](end_span)</div>
+                <div class="event-author">Юлия Софийская[span_13](start_span)[span_13](end_span)</div>
               </div>
             </td>
           </tr>
 
           <!-- 13:00 - 13:50 -->
           <tr>
-            <td class="td-time">13:00 – 13:50</td>
+            <td class="td-time">13:00 – 13:50[span_14](start_span)[span_14](end_span)</td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Энергодыхание как инструмент управления состоянием»</div>
-                <div class="event-type">Дыхательная практика</div>
-                <div class="event-author">Алина Намитулина</div>
+                <div class="event-title">«Энергодыхание как инструмент управления состоянием»[span_15](start_span)[span_15](end_span)</div>
+                <div class="event-type">Дыхательная практика[span_16](start_span)[span_16](end_span)</div>
+                <div class="event-author">Алина Намитулина[span_17](start_span)[span_17](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Расправь крылья»</div>
-                <div class="event-type">Арт-практика</div>
-                <div class="event-author">София Пушкина</div>
+                <div class="event-title">«Расправь крылья»[span_18](start_span)[span_18](end_span)</div>
+                <div class="event-type">Арт-практика[span_19](start_span)[span_19](end_span)</div>
+                <div class="event-author">София Пушкина[span_20](start_span)[span_20](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Твой ресурс: 7 элементов внутренней экологии»</div>
-                <div class="event-type">МАК-сессия</div>
-                <div class="event-author">Лилия</div>
+                <div class="event-title">«Твой ресурс: 7 элементов внутренней экологии»[span_21](start_span)[span_21](end_span)</div>
+                <div class="event-type">МАК-сессия[span_22](start_span)[span_22](end_span)</div>
+                <div class="event-author">Лилия[span_23](start_span)[span_23](end_span)</div>
               </div>
             </td>
             <td>
@@ -440,9 +601,9 @@
             <td class="empty-slot">—</td>
             <td>
               <div class="event-card">
-                <div class="event-title">Игра «Лила»</div>
-                <div class="event-type">Игра самопознания</div>
-                <div class="event-author">Наталья Виссарионова</div>
+                <div class="event-title">Игра «Лила»[span_24](start_span)[span_24](end_span)</div>
+                <div class="event-type">Игра самопознания[span_25](start_span)[span_25](end_span)</div>
+                <div class="event-author">Наталья Виссарионова[span_26](start_span)[span_26](end_span)</div>
               </div>
             </td>
             <td class="empty-slot">—</td>
@@ -450,24 +611,24 @@
 
           <!-- 14:00 - 14:50 -->
           <tr>
-            <td class="td-time">14:00 – 14:50</td>
+            <td class="td-time">14:00 – 14:50[span_27](start_span)[span_27](end_span)</td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Звуковая активация ресурса»</div>
                 <div class="event-type">Звуковая медитация</div>
-                <div class="event-author">Татьяна Гармаш и Александр Васильев</div>
+                <div class="event-author">Татьяна Гармаш и Александр Васильев[span_28](start_span)[span_28](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Жонглёры впечатлениями»</div>
-                <div class="event-type">Трансформационная игра</div>
+                <div class="event-title">«Жонглёры впечатлениями»[span_29](start_span)[span_29](end_span)</div>
+                <div class="event-type">Трансформационная игра[span_30](start_span)[span_30](end_span)</div>
                 <div class="event-author">Светлана Прутченкова / Юлия Комарова</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Моя самооценка»</div>
+                <div class="event-title">«Моя самооценка»[span_31](start_span)[span_31](end_span)</div>
                 <div class="event-type">Практикум</div>
                 <div class="event-author">Татьяна Царькова</div>
               </div>
@@ -475,8 +636,8 @@
             <td>
               <div class="event-card">
                 <div class="event-title">«Шёпот трав»</div>
-                <div class="event-type">Славянская чайная церемония-медитация</div>
-                <div class="event-author">Жанна Пашина-Наумович</div>
+                <div class="event-type">Славянская чайная церемония-медитация[span_32](start_span)[span_32](end_span)</div>
+                <div class="event-author">Жанна Пашина-Наумович[span_33](start_span)[span_33](end_span)</div>
               </div>
             </td>
             <td>
@@ -488,47 +649,47 @@
             <td>
               <div class="event-card">
                 <div class="event-title">«Лаборатория харизмы»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Оксана Галуха</div>
+                <div class="event-type">Трансформационная игра[span_34](start_span)[span_34](end_span)</div>
+                <div class="event-author">Оксана Галуха[span_35](start_span)[span_35](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Красный шатёр»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Алена Ямуна</div>
+                <div class="event-type">Трансформационная игра[span_36](start_span)[span_36](end_span)</div>
+                <div class="event-author">Алена Ямуна[span_37](start_span)[span_37](end_span)</div>
               </div>
             </td>
           </tr>
 
           <!-- 15:00 - 15:50 -->
           <tr>
-            <td class="td-time">15:00 – 15:50</td>
+            <td class="td-time">15:00 – 15:50[span_38](start_span)[span_38](end_span)</td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Хватит искать опору в других! Пора создать её внутри»</div>
-                <div class="event-type">Практическая лекция и медитация</div>
-                <div class="event-author">Оксана Мамонтова (Омма)</div>
+                <div class="event-type">Практическая лекция и медитация[span_39](start_span)[span_39](end_span)</div>
+                <div class="event-author">Оксана Мамонтова (Омма)[span_40](start_span)[span_40](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Внутренняя опора»</div>
-                <div class="event-type">Практический мастер-класс</div>
-                <div class="event-author">Юлия Комарова</div>
+                <div class="event-title">«Внутренняя опора»[span_41](start_span)[span_41](end_span)</div>
+                <div class="event-type">Практический мастер-класс[span_42](start_span)[span_42](end_span)</div>
+                <div class="event-author">Юлия Комарова[span_43](start_span)[span_43](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Мир начинается с тебя»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Людмила Ирадая</div>
+                <div class="event-title">«Мир начинается с тебя»[span_44](start_span)[span_44](end_span)</div>
+                <div class="event-type">Трансформационная игра[span_45](start_span)[span_45](end_span)</div>
+                <div class="event-author">Людмила Ирадая[span_46](start_span)[span_46](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
                 <div class="event-title">Арома-игра «Состояние счастья»</div>
-                <div class="event-type">Арома-игра</div>
+                <div class="event-type">Арома-игра[span_47](start_span)[span_47](end_span)</div>
                 <div class="event-author">Юлия Федорова</div>
               </div>
             </td>
@@ -539,27 +700,27 @@
 
           <!-- 16:00 - 16:50 -->
           <tr>
-            <td class="td-time">16:00 – 16:50</td>
+            <td class="td-time">16:00 – 16:50[span_48](start_span)[span_48](end_span)</td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Сутулость: мифы и реальные советы для коррекции»</div>
-                <div class="event-type">Практический мастер-класс</div>
-                <div class="event-author">Ольга Шарипова</div>
+                <div class="event-type">Практический мастер-класс[span_49](start_span)[span_49](end_span)</div>
+                <div class="event-author">Ольга Шарипова[span_50](start_span)[span_50](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Янтарный путь»</div>
+                <div class="event-title">«Янтарный путь»[span_51](start_span)[span_51](end_span)</div>
                 <div class="event-type">Авторская система работы с состоянием</div>
-                <div class="event-author">Александра Слепцова</div>
+                <div class="event-author">Александра Слепцова[span_52](start_span)[span_52](end_span)</div>
               </div>
             </td>
             <td class="empty-slot">—</td>
             <td>
               <div class="event-card">
-                <div class="event-title">Чайная церемония</div>
+                <div class="event-title">Чайная церемония[span_53](start_span)[span_53](end_span)</div>
                 <div class="event-type">Традиционное чаепитие</div>
-                <div class="event-author">Юрась Шаройко</div>
+                <div class="event-author">Юрась Шаройко[span_54](start_span)[span_54](end_span)</div>
               </div>
             </td>
             <td>
@@ -571,56 +732,56 @@
             <td>
               <div class="event-card">
                 <div class="event-title">«СамоЛадание»</div>
-                <div class="event-type">Телесная практика и МАК-сессия</div>
-                <div class="event-author">Светлана Чернявская</div>
+                <div class="event-type">Телесная практика и МАК-сессия[span_55](start_span)[span_55](end_span)</div>
+                <div class="event-author">Светлана Чернявская[span_56](start_span)[span_56](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Самоценность как ресурс»</div>
-                <div class="event-type">Эмоционально-образная терапия</div>
-                <div class="event-author">Анна Смирнова</div>
+                <div class="event-title">«Самоценность как ресурс»[span_57](start_span)[span_57](end_span)</div>
+                <div class="event-type">Эмоционально-образная терапия[span_58](start_span)[span_58](end_span)</div>
+                <div class="event-author">Анна Смирнова[span_59](start_span)[span_59](end_span)</div>
               </div>
             </td>
           </tr>
 
           <!-- 17:00 - 17:50 -->
           <tr>
-            <td class="td-time">17:00 – 17:50</td>
+            <td class="td-time">17:00 – 17:50[span_60](start_span)[span_60](end_span)</td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Метафорический танец: многогранность женщины»</div>
+                <div class="event-title">«Метафорический танец: многогранность женщины»[span_61](start_span)[span_61](end_span)</div>
                 <div class="event-type">Практика через движение и тело</div>
-                <div class="event-author">Евгения Шепелева</div>
+                <div class="event-author">Евгения Шепелева[span_62](start_span)[span_62](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Шишлики-мышлики»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Светлана Радалия</div>
+                <div class="event-type">Трансформационная игра[span_63](start_span)[span_63](end_span)</div>
+                <div class="event-author">Светлана Радалия[span_64](start_span)[span_64](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Внутреннее топливо»</div>
-                <div class="event-type">МАК-сессия</div>
-                <div class="event-author">Оксана Вавилова</div>
+                <div class="event-title">«Внутреннее топливо»[span_65](start_span)[span_65](end_span)</div>
+                <div class="event-type">МАК-сессия[span_66](start_span)[span_66](end_span)</div>
+                <div class="event-author">Оксана Вавилова[span_67](start_span)[span_67](end_span)</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">Аромапрактика</div>
+                <div class="event-title">Аромапрактика[span_68](start_span)[span_68](end_span)</div>
                 <div class="event-type">Интерактивный арома-класс</div>
-                <div class="event-author">Александра Цымбал</div>
+                <div class="event-author">Александра Цымбал[span_69](start_span)[span_69](end_span)</div>
               </div>
             </td>
             <td class="empty-slot">—</td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Код успеха»</div>
-                <div class="event-type">Практикум по цифровой психологии</div>
-                <div class="event-author">Олеся Шепталова</div>
+                <div class="event-title">«Код успеха»[span_70](start_span)[span_70](end_span)</div>
+                <div class="event-type">Практикум по цифровой психологии[span_71](start_span)[span_71](end_span)</div>
+                <div class="event-author">Олеся Шепталова[span_72](start_span)[span_72](end_span)</div>
               </div>
             </td>
             <td class="empty-slot">—</td>
@@ -630,24 +791,87 @@
       </table>
     </div>
 
-    <!-- ВЕЧЕРНИЙ ПЕРФОРМАНС И ЗАВЕРШЕНИЕ -->
-    <div class="banner-event banner-music">
-      <span class="banner-time">18:00 – 18:35</span>
-      <span>🎵 <strong>Главная сцена:</strong> Музыкальный перформанс от группы <strong>«В Течение Марта»</strong></span>
-    </div>
+    <!-- ВЕЧЕРНИЙ ПЕРФОРМАНС С РАСКРЫВАЮЩИМСЯ ОПИСАНИЕМ -->
+    <details class="music-details">
+      <summary class="music-summary">
+        <div class="music-main-info">
+          <span class="banner-time">18:00 – 18:35</span>
+          <span>🎵 <strong>Главная сцена:</strong> Музыкальный перформанс от группы <a href="https://music.yandex.ru/artist/20919413" target="_blank" rel="noopener noreferrer" class="music-link" onclick="event.stopPropagation();">«В Течение Марта»</a></span>
+        </div>
+        <span class="music-expand-toggle">Подробнее о музыкальном перформансе ▾</span>
+      </summary>
 
-    <div class="banner-event banner-intro" style="background: #EFECE6; border-color: #797163; color: #433D35;">
+      <div class="music-body">
+        
+        <!-- ГАЛЕРЕЯ ИЗ ДВУХ КАРТИНОК -->
+        <div class="music-gallery">
+          <img src="marta1.jpg" alt="Группа В Течение Марта в городе">
+          <img src="marta2.jpg" alt="Постельные сцены — Попробуй мне присниться">
+        </div>
+
+        <!-- ТЕКСТОВАЯ ЧАСТЬ -->
+        <div class="music-section-block">
+          <div class="music-section-title">Верхние ноты:</div>
+          <div class="music-section-text">
+            Концертный перформанс «Постельные сцены» от В Течение Марта — пространство мягкой магии на стыке музыки, живописи и кино. Мы исследуем близость и сотворчество как путь к себе, к миру, к чему-то высшему.
+          </div>
+        </div>
+
+        <div class="music-section-block">
+          <div class="music-section-title">Средние ноты:</div>
+          <div class="music-section-text">
+            Как ощущается контакт, где можно быть безусловно живым?<br>
+            Перед концертом — возможность пройти аудио-иммерсив <strong>«Попробуй мне присниться»</strong> (15 минут в наушниках). Это мягкая настройка на контакт с собой, которая дополнит живое выступление: 
+            <a href="http://t.me/portalbed/283" target="_blank" rel="noopener noreferrer">http://t.me/portalbed/283</a>
+          </div>
+        </div>
+
+        <div class="music-section-block">
+          <div class="music-section-title">База:</div>
+          <div class="music-section-text">
+            В Течение Марта — московский дуэт голоса и виолончели с live looping и интеллигентной электроникой. Авторы: художник и режиссёр Мария Орлова-Атрошенко (ВГИК, школа современного искусства ММОМА), композитор Алексей Орлов (виолончелист группы «Мельница»).
+          </div>
+        </div>
+
+        <div class="music-final-phrase">
+          Приходите слушать, смотреть и сниться.
+        </div>
+
+        <!-- КНОПКИ С ИКОНКАМИ -->
+        <div class="music-buttons">
+          <a href="https://music.yandex.ru/artist/20919413" target="_blank" rel="noopener noreferrer" class="btn-social">
+            <!-- Яндекс Музыка Иконка -->
+            <svg viewBox="0 0 24 24" fill="#EB5E34">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.64 14.52l-2.73-1.63V8.89l2.73-1.63v7.26zm-4.55-1.42l-2.73-1.64V10.3l2.73-1.63v5.61z"/>
+            </svg>
+            Мы на Яндекс Музыке
+          </a>
+
+          <a href="https://vk.ru/martbook" target="_blank" rel="noopener noreferrer" class="btn-social">
+            <!-- ВКонтакте Иконка -->
+            <svg viewBox="0 0 24 24" fill="#2787F5">
+              <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.072-1.353.623-1.92 1.442-1.39 1.135.733 1.572 1.942 2.652 2.274.792.242 1.393.072 1.745-.333l.006-.007c.367-.424.283-1.157-.354-2.038-.578-.8-1.464-1.728-1.57-2.05-.152-.456-.043-.67.152-.942.022-.031.18-.246.994-1.385.879-1.229 1.34-2.029 1.258-2.457-.08-.415-.558-.517-.89-.517h-2.32c-.36 0-.616.149-.773.535-.45 1.107-1.127 2.45-1.706 3.125-.393.457-.597.551-.81.42-.323-.197-.247-.945-.247-1.954V8.583c0-.82-.236-1.188-.867-1.242-.315-.027-.887-.044-1.614-.044-1.325 0-2.203.023-2.618.328-.24.176-.385.474-.247.502.433.088.756.326.852.871.182 1.036.19 2.502-.376 2.766-.364.17-.79-.177-1.488-1.428-.485-.867-.997-2.008-1.35-2.83-.12-.28-.31-.482-.692-.482H4.156c-.463 0-.67.228-.67.482 0 .428.508 2.052 2.37 4.73 1.572 2.261 3.784 3.734 6.306 3.765l1-.006z"/>
+            </svg>
+            Мы в ВК
+          </a>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- ЗАВЕРШЕНИЕ -->
+    <div class="banner-event banner-intro" style="background: #EFECE6; border-color: #797163; color: #433D35; margin-top: 16px;">
       <span class="banner-time">18:35 – 18:50</span>
       <span>Торжественное завершение фестиваля</span>
     </div>
 
     <!-- ПОДВАЛ -->
     <footer class="footer">
-      <div>📍 ВДНХ, Павильон №44 «Кролиководство» (пр-т Мира, д. 119, стр. 44)</div>
+      <div>📍 ВДНХ, Павильон №44 «Кролиководство» (пр-т Мира, д. 119, стр. 44)[span_73](start_span)[span_73](end_span)</div>
       <div class="footer-contacts">
         Контакты: 
-        <span>8 (495) 544-34-00</span>
-        <span>8 (964) 588-83-33</span>
+        <span>8 (495) 544-34-00[span_74](start_span)[span_74](end_span)</span>
+        <span>8 (964) 588-83-33[span_75](start_span)[span_75](end_span)</span>
       </div>
     </footer>
 
