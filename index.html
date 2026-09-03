@@ -37,7 +37,7 @@
     }
 
     .container {
-      max-width: 1650px;
+      max-width: 1750px;
       margin: 0 auto;
       background: var(--bg-cream);
     }
@@ -146,6 +146,29 @@
       color: var(--brand-dark-green);
     }
 
+    .banner-stream {
+      background: linear-gradient(90deg, #F0F5E5 0%, #FAF7F0 100%);
+      border-left: 6px solid #2787F5;
+      color: var(--brand-dark-green);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .banner-stream-link {
+      color: #1A69D2;
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .banner-stream-link:hover {
+      color: var(--brand-orange);
+    }
+
     .banner-intro a {
       color: var(--brand-dark-green);
       text-decoration: underline;
@@ -169,7 +192,129 @@
       color: var(--brand-dark-green);
     }
 
-    /* МУЗЫКАЛЬНЫЙ БАННЕР С ВЫПАДАЮЩИМ ОПИСАНИЕМ */
+    /* ТАБЛИЦА РАСПИСАНИЯ */
+    .schedule-table-wrapper {
+      overflow-x: auto;
+      background: #FFFFFF;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(46, 71, 32, 0.05);
+      border: 1px solid var(--border-soft);
+      padding: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 8px;
+      table-layout: fixed;
+      min-width: 1550px;
+    }
+
+    th {
+      padding: 12px 8px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+      vertical-align: middle;
+      color: #FFFFFF;
+    }
+
+    th.th-time { background-color: var(--brand-dark-green); width: 105px; }
+    th.th-stage { background-color: var(--brand-orange); }
+    th.th-sec2  { background-color: #7D9747; }
+    th.th-sec3  { background-color: #4C6F34; }
+    th.th-sec4  { background-color: #859B4B; }
+    th.th-sec5  { background-color: #557937; }
+    th.th-sec6  { background-color: #728D4D; }
+    th.th-sec7  { background-color: #385526; }
+    th.th-sub7  { background-color: #4A6E34; font-size: 11px; padding: 6px; }
+
+    .sub-zone {
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 3px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    td {
+      vertical-align: top;
+      background-color: #FAF8F2;
+      border-radius: 14px;
+      padding: 10px;
+      border: 1px solid #ECE7D9;
+      transition: all 0.15s ease;
+    }
+
+    td:hover {
+      background-color: #F4EEDB;
+      border-color: #D6CDB8;
+    }
+
+    td.td-time {
+      background-color: #F1ECE1;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--brand-dark-green);
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid #DFD9CB;
+    }
+
+    .event-card {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      height: 100%;
+    }
+
+    .event-time-badge {
+      align-self: flex-start;
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      color: #9C3312;
+      background: #FFEBE3;
+      padding: 2px 7px;
+      border-radius: 8px;
+      margin-bottom: 2px;
+    }
+
+    .event-title {
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--brand-dark-green);
+      line-height: 1.25;
+    }
+
+    .event-type {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--brand-olive);
+      line-height: 1.2;
+    }
+
+    .event-author {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    .empty-slot {
+      text-align: center;
+      color: #C2BCAC;
+      font-size: 16px;
+      vertical-align: middle;
+    }
+
+    /* МУЗЫКАЛЬНЫЙ БЛОК */
     .music-details {
       background: linear-gradient(135deg, #FFF6F2 0%, #FFFDF7 100%);
       border-left: 6px solid var(--brand-orange);
@@ -248,8 +393,9 @@
 
     .music-gallery img {
       width: 100%;
-      height: 280px;
-      object-fit: cover;
+      height: 380px;
+      object-fit: contain;
+      background: #FAF7F0;
       border-radius: 14px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
       border: 1px solid #ECE7D9;
@@ -326,115 +472,6 @@
       flex-shrink: 0;
     }
 
-    /* ТАБЛИЦА */
-    .schedule-table-wrapper {
-      overflow-x: auto;
-      background: #FFFFFF;
-      border-radius: 24px;
-      box-shadow: 0 4px 20px rgba(46, 71, 32, 0.05);
-      border: 1px solid var(--border-soft);
-      padding: 8px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 8px;
-      table-layout: fixed;
-      min-width: 1350px;
-    }
-
-    th {
-      padding: 14px 10px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 12.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      text-align: center;
-      vertical-align: middle;
-      color: #FFFFFF;
-    }
-
-    th.th-time { background-color: var(--brand-dark-green); width: 110px; }
-    th.th-stage { background-color: var(--brand-orange); }
-    th.th-z2 { background-color: var(--brand-olive); }
-    th.th-z3 { background-color: #4C6F34; }
-    th.th-z4 { background-color: #859B4B; }
-    th.th-z5 { background-color: #557937; }
-    th.th-z6 { background-color: #728D4D; }
-    th.th-z7 { background-color: #385526; }
-
-    .sub-zone {
-      display: block;
-      font-size: 10.5px;
-      font-weight: 500;
-      opacity: 0.9;
-      margin-top: 3px;
-      text-transform: none;
-      letter-spacing: normal;
-    }
-
-    td {
-      vertical-align: top;
-      background-color: #FAF8F2;
-      border-radius: 14px;
-      padding: 12px;
-      border: 1px solid #ECE7D9;
-      transition: all 0.15s ease;
-    }
-
-    td:hover {
-      background-color: #F4EEDB;
-      border-color: #D6CDB8;
-    }
-
-    td.td-time {
-      background-color: #F1ECE1;
-      font-weight: 800;
-      font-size: 13.5px;
-      color: var(--brand-dark-green);
-      text-align: center;
-      vertical-align: middle;
-      border: 1px solid #DFD9CB;
-    }
-
-    .event-card {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      height: 100%;
-    }
-
-    .event-title {
-      font-weight: 800;
-      font-size: 13px;
-      color: var(--brand-dark-green);
-      line-height: 1.25;
-    }
-
-    .event-type {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--brand-olive);
-      line-height: 1.25;
-    }
-
-    .event-author {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-top: 3px;
-      line-height: 1.25;
-    }
-
-    .empty-slot {
-      text-align: center;
-      color: #C2BCAC;
-      font-size: 16px;
-      vertical-align: middle;
-    }
-
     /* ПОДВАЛ */
     .footer {
       display: flex;
@@ -457,6 +494,11 @@
     }
 
     @media (max-width: 768px) {
+      .banner-stream {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
       .music-summary {
         flex-direction: column;
         align-items: flex-start;
@@ -469,7 +511,7 @@
         grid-template-columns: 1fr;
       }
       .music-gallery img {
-        height: 220px;
+        height: 250px;
       }
     }
   </style>
@@ -497,24 +539,41 @@
       <span>Начало регистрации гостей (<a href="https://prorost.timepad.ru/event/4142365/" target="_blank" rel="noopener noreferrer">предварительная онлайн-регистрация обязательна</a>)</span>
     </div>
 
+    <!-- БАННЕР ОНЛАЙН-ТРАНСЛЯЦИИ -->
+    <div class="banner-event banner-stream">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span class="banner-time" style="color: #1A69D2;">11:40</span>
+        <span>Прямой эфир фестиваля</span>
+      </div>
+      <a href="https://vkvideo.ru/live-235383253_456239028" target="_blank" rel="noopener noreferrer" class="banner-stream-link">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Не получается быть вживую — подключайтесь к эфиру! →
+      </a>
+    </div>
+
     <div class="banner-event banner-intro" style="margin-bottom: 20px;">
       <span class="banner-time">11:30 – 11:50</span>
       <span>Вступительное слово организаторов и Притча «Адам и Ева» от <strong>Галины Еде</strong></span>
     </div>
 
-    <!-- ТАБЛИЦА РАСПИСАНИЯ ПО ЗОНАМ -->
+    <!-- ТАБЛИЦА РАСПИСАНИЯ ПО СЕКЦИЯМ -->
     <div class="schedule-table-wrapper">
       <table>
         <thead>
           <tr>
-            <th class="th-time">Время</th>
-            <th class="th-stage">СЦЕНА<span class="sub-zone">открытая зона</span></th>
-            <th class="th-z2">ЗОНА 2<span class="sub-zone">стол у окна</span></th>
-            <th class="th-z3">ЗОНА 3<span class="sub-zone">барная стойка</span></th>
-            <th class="th-z4">ЗОНА 4<span class="sub-zone">переговорная</span></th>
-            <th class="th-z5">ЗОНА 5<span class="sub-zone">мягкая зона</span></th>
-            <th class="th-z6">ЗОНА 6<span class="sub-zone">стол</span></th>
-            <th class="th-z7">ЗОНА 7<span class="sub-zone">кресла и диваны</span></th>
+            <th class="th-time" rowspan="2">Время</th>
+            <th class="th-stage" rowspan="2">СЦЕНА<span class="sub-zone">ТЕЛЕСНЫЙ РЕСУРС</span></th>
+            <th class="th-sec2" rowspan="2">СЕКЦИЯ 2<span class="sub-zone">АРТ</span></th>
+            <th class="th-sec3" rowspan="2">СЕКЦИЯ 3<span class="sub-zone">МАК</span></th>
+            <th class="th-sec4" rowspan="2">СЕКЦИЯ 4<span class="sub-zone">ПЕРЕГОВОРНАЯ</span></th>
+            <th class="th-sec5" rowspan="2">СЕКЦИЯ 5<span class="sub-zone">НЕТВОРКИНГ</span></th>
+            <th class="th-sec6" rowspan="2">СЕКЦИЯ 6<span class="sub-zone">АРТ 2</span></th>
+            <th class="th-sec7" colspan="2">СЕКЦИЯ 7<span class="sub-zone">ЭРКЕР</span></th>
+            <th class="th-time" rowspan="2">Время</th>
+          </tr>
+          <tr>
+            <th class="th-sub7">Стол 1</th>
+            <th class="th-sub7">Стол 2</th>
           </tr>
         </thead>
         <tbody>
@@ -531,7 +590,7 @@
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Цвета снаружи гармония внутри»</div>
+                <div class="event-title">«Цвета снаружи — гармония внутри»</div>
                 <div class="event-type">Творческий мастер-класс</div>
                 <div class="event-author">Марина Рыбка</div>
               </div>
@@ -540,13 +599,13 @@
               <div class="event-card">
                 <div class="event-title">«Я и мой ресурс»</div>
                 <div class="event-type">МАК-сессия</div>
-                <div class="event-author">Е. Сорокина</div>
+                <div class="event-author">Елена Сорокина</div>
               </div>
             </td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Бодрость»</div>
-                <div class="event-type">Аромасессия</div>
+                <div class="event-type">Арома-сессия</div>
                 <div class="event-author">Анастасия Туманова</div>
               </div>
             </td>
@@ -560,16 +619,26 @@
               <div class="event-card">
                 <div class="event-title">Куклотерапия</div>
                 <div class="event-type">Творческая терапия</div>
-                <div class="event-author">Валерия Александрова, Алёна Вереск</div>
+                <div class="event-author">Валерия Александрова, Вереск Алена</div>
               </div>
             </td>
             <td>
               <div class="event-card">
-                <div class="event-title">«Автор жизни»</div>
+                <div class="event-time-badge">12:00 – 13:20</div>
+                <div class="event-title">«Автор Жизни»</div>
                 <div class="event-type">Трансформационная игра</div>
                 <div class="event-author">Юлия Софийская</div>
               </div>
             </td>
+            <td>
+              <div class="event-card">
+                <div class="event-time-badge">12:00 – 13:20</div>
+                <div class="event-title">«Назад в будущее»</div>
+                <div class="event-type">Трансформационная игра по финансовым стратегиям</div>
+                <div class="event-author">Наталья Евдокимова</div>
+              </div>
+            </td>
+            <td class="td-time">12:00 – 12:50</td>
           </tr>
 
           <!-- 13:00 - 13:50 -->
@@ -603,15 +672,37 @@
                 <div class="event-author">Константин Боцоев</div>
               </div>
             </td>
-            <td class="empty-slot">—</td>
             <td>
               <div class="event-card">
-                <div class="event-title">Игра «Лила»</div>
+                <div class="event-title">Нетворкинг</div>
+                <div class="event-type">Знакомство и общение</div>
+              </div>
+            </td>
+            <td>
+              <div class="event-card">
+                <div class="event-time-badge">13:00 – 14:20</div>
+                <div class="event-title">Игра Лила</div>
                 <div class="event-type">Игра самопознания</div>
                 <div class="event-author">Наталья Виссарионова</div>
               </div>
             </td>
-            <td class="empty-slot">—</td>
+            <td rowspan="2">
+              <div class="event-card">
+                <div class="event-time-badge">13:30 – 14:50</div>
+                <div class="event-title">«Красный шатер»</div>
+                <div class="event-type">Трансформационная игра</div>
+                <div class="event-author">Алена Ямуна</div>
+              </div>
+            </td>
+            <td rowspan="2">
+              <div class="event-card">
+                <div class="event-time-badge">13:30 – 14:50</div>
+                <div class="event-title">«Линии Рода»</div>
+                <div class="event-type">Трансформационная игра</div>
+                <div class="event-author">Людмила Потапова</div>
+              </div>
+            </td>
+            <td class="td-time">13:00 – 13:50</td>
           </tr>
 
           <!-- 14:00 - 14:50 -->
@@ -628,7 +719,7 @@
               <div class="event-card">
                 <div class="event-title">«Жонглёры впечатлениями»</div>
                 <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Светлана Прутченкова / Юлия Комарова</div>
+                <div class="event-author">Светлана Прутченкова</div>
               </div>
             </td>
             <td>
@@ -651,20 +742,15 @@
                 <div class="event-type">Знакомство и общение</div>
               </div>
             </td>
-            <td>
+            <td rowspan="2">
               <div class="event-card">
-                <div class="event-title">«Лаборатория харизмы»</div>
+                <div class="event-time-badge">14:30 – 15:50</div>
+                <div class="event-title">«Лаборатория Харизмы»</div>
                 <div class="event-type">Трансформационная игра</div>
                 <div class="event-author">Оксана Галуха</div>
               </div>
             </td>
-            <td>
-              <div class="event-card">
-                <div class="event-title">«Красный шатёр»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Алена Ямуна</div>
-              </div>
-            </td>
+            <td class="td-time">14:00 – 14:50</td>
           </tr>
 
           <!-- 15:00 - 15:50 -->
@@ -698,9 +784,29 @@
                 <div class="event-author">Юлия Федорова</div>
               </div>
             </td>
-            <td class="empty-slot">—</td>
-            <td class="empty-slot">—</td>
-            <td class="empty-slot">—</td>
+            <td>
+              <div class="event-card">
+                <div class="event-title">Нетворкинг</div>
+                <div class="event-type">Знакомство и общение</div>
+              </div>
+            </td>
+            <td>
+              <div class="event-card">
+                <div class="event-time-badge">15:00 – 15:50</div>
+                <div class="event-title">Письменные практики</div>
+                <div class="event-type">Практика</div>
+                <div class="event-author">Лариса Плотникова</div>
+              </div>
+            </td>
+            <td>
+              <div class="event-card">
+                <div class="event-time-badge">15:00 – 15:50</div>
+                <div class="event-title">«Стопы»</div>
+                <div class="event-type">Арт-практика</div>
+                <div class="event-author">Жанна Амченцева</div>
+              </div>
+            </td>
+            <td class="td-time">15:00 – 15:50</td>
           </tr>
 
           <!-- 16:00 - 16:50 -->
@@ -720,7 +826,13 @@
                 <div class="event-author">Александра Слепцова</div>
               </div>
             </td>
-            <td class="empty-slot">—</td>
+            <td>
+              <div class="event-card">
+                <div class="event-title">«Арт баланс в Нейрографике»</div>
+                <div class="event-type">Практический мастер-класс</div>
+                <div class="event-author">Маргарита Денисова</div>
+              </div>
+            </td>
             <td>
               <div class="event-card">
                 <div class="event-title">Чайная церемония</div>
@@ -741,13 +853,23 @@
                 <div class="event-author">Светлана Чернявская</div>
               </div>
             </td>
-            <td>
+            <td rowspan="2">
               <div class="event-card">
+                <div class="event-time-badge">16:00 – 17:50</div>
                 <div class="event-title">«Самоценность как ресурс»</div>
                 <div class="event-type">Эмоционально-образная терапия</div>
                 <div class="event-author">Анна Смирнова</div>
               </div>
             </td>
+            <td rowspan="2">
+              <div class="event-card">
+                <div class="event-time-badge">16:00 – 17:50</div>
+                <div class="event-title">«Счастливая Я»</div>
+                <div class="event-type">Трансформационная игра</div>
+                <div class="event-author">Лара Пирюгина</div>
+              </div>
+            </td>
+            <td class="td-time">16:00 – 16:50</td>
           </tr>
 
           <!-- 17:00 - 17:50 -->
@@ -781,7 +903,12 @@
                 <div class="event-author">Александра Цымбал</div>
               </div>
             </td>
-            <td class="empty-slot">—</td>
+            <td>
+              <div class="event-card">
+                <div class="event-title">Нетворкинг</div>
+                <div class="event-type">Знакомство и общение</div>
+              </div>
+            </td>
             <td>
               <div class="event-card">
                 <div class="event-title">«Код успеха»</div>
@@ -789,7 +916,7 @@
                 <div class="event-author">Олеся Шепталова</div>
               </div>
             </td>
-            <td class="empty-slot">—</td>
+            <td class="td-time">17:00 – 17:50</td>
           </tr>
 
         </tbody>
@@ -800,7 +927,7 @@
     <details class="music-details">
       <summary class="music-summary">
         <div class="music-main-info">
-          <span class="banner-time">18:00 – 18:35</span>
+          <span class="banner-time">18:00 – 18:40</span>
           <span>🎵 <strong>Главная сцена:</strong> Музыкальный перформанс от группы <a href="https://music.yandex.ru/artist/20919413" target="_blank" rel="noopener noreferrer" class="music-link" onclick="event.stopPropagation();">«В Течение Марта»</a></span>
         </div>
         <span class="music-expand-toggle">Подробнее о музыкальном перформансе ▾</span>
@@ -864,7 +991,7 @@
 
     <!-- ЗАВЕРШЕНИЕ -->
     <div class="banner-event banner-intro" style="background: #EFECE6; border-color: #797163; color: #433D35; margin-top: 16px;">
-      <span class="banner-time">18:35 – 18:50</span>
+      <span class="banner-time">18:40 – 19:00</span>
       <span>Торжественное завершение фестиваля</span>
     </div>
 
