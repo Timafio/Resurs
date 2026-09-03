@@ -558,10 +558,17 @@
       font-weight: 600;
     }
 
-    .footer-contacts span {
+    .footer-contacts a {
       margin-left: 16px;
       color: var(--brand-dark-green);
       font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contacts a:hover {
+      color: var(--brand-orange);
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -692,7 +699,7 @@
             </td>
 
             <!-- СЕКЦИЯ 7: ОБЪЕДИНЕНЫ СЛОТЫ 12:00, 13:00 и 14:00 (rowspan=3) ДЛЯ РОВНОГО ДЕЛЕНИЯ НА 4 ОДИНАКОВЫХ БЛОКА ПО ВЫСОТЕ -->
-            <td rowspan="3" style="padding: 0; background: transparent; border: none;">
+            <td rowspan="3" style="padding: 0; background: transparent; border: none; height: 1px;">
               <div class="td-split-container">
                 <div class="sub-split-card-half">
                   <div class="event-time-badge">12:00 – 13:20</div>
@@ -708,7 +715,7 @@
                 </div>
               </div>
             </td>
-            <td rowspan="3" style="padding: 0; background: transparent; border: none;">
+            <td rowspan="3" style="padding: 0; background: transparent; border: none; height: 1px;">
               <div class="td-split-container">
                 <div class="sub-split-card-half">
                   <div class="event-time-badge">12:00 – 13:20</div>
@@ -1084,8 +1091,8 @@
       <div>📍 ВДНХ, Павильон №44 «Кролиководство» (пр-т Мира, д. 119, стр. 44)</div>
       <div class="footer-contacts">
         Контакты: 
-        <span>8 (495) 544-34-00</span>
-        <span>8 (964) 588-83-33</span>
+        <a href="tel:+74955443400">8 (495) 544-34-00</a>
+        <a href="tel:+79645888333">8 (964) 588-83-33</a>
       </div>
     </footer>
 
