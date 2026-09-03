@@ -146,29 +146,6 @@
       color: var(--brand-dark-green);
     }
 
-    .banner-stream {
-      background: linear-gradient(90deg, #F0F5E5 0%, #FAF7F0 100%);
-      border-left: 6px solid #2787F5;
-      color: var(--brand-dark-green);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .banner-stream-link {
-      color: #1A69D2;
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: color 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .banner-stream-link:hover {
-      color: var(--brand-orange);
-    }
-
     .banner-intro a {
       color: var(--brand-dark-green);
       text-decoration: underline;
@@ -178,6 +155,36 @@
     }
 
     .banner-intro a:hover {
+      color: var(--brand-orange);
+    }
+
+    /* Аккуратная плашка прямого эфира */
+    .banner-stream-subtle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 8px 18px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .stream-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #2E6B9E;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+
+    .stream-link:hover {
       color: var(--brand-orange);
     }
 
@@ -207,11 +214,11 @@
       border-collapse: separate;
       border-spacing: 8px;
       table-layout: fixed;
-      min-width: 1550px;
+      min-width: 1600px;
     }
 
     th {
-      padding: 12px 8px;
+      padding: 12px 6px;
       border-radius: 14px;
       font-weight: 800;
       font-size: 12px;
@@ -222,7 +229,13 @@
       color: #FFFFFF;
     }
 
-    th.th-time { background-color: var(--brand-dark-green); width: 105px; }
+    /* Задана достаточная ширина и nowrap, чтобы время никогда не переносилось */
+    th.th-time { 
+      background-color: var(--brand-dark-green); 
+      width: 130px; 
+      min-width: 130px;
+      white-space: nowrap;
+    }
     th.th-stage { background-color: var(--brand-orange); }
     th.th-sec2  { background-color: #7D9747; }
     th.th-sec3  { background-color: #4C6F34; }
@@ -259,11 +272,38 @@
     td.td-time {
       background-color: #F1ECE1;
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--brand-dark-green);
       text-align: center;
       vertical-align: middle;
       border: 1px solid #DFD9CB;
+      white-space: nowrap;
+      letter-spacing: -0.2px;
+    }
+
+    /* Контейнер для двух равных блоков в ячейке Секции 7 */
+    .td-split-vertical {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 100%;
+      gap: 10px;
+    }
+
+    .sub-split-card {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      background: #FAF8F2;
+      border: 1px solid #ECE7D9;
+      border-radius: 12px;
+      padding: 9px;
+    }
+
+    .sub-split-card:hover {
+      background-color: #F4EEDB;
+      border-color: #D6CDB8;
     }
 
     .event-card {
@@ -472,12 +512,42 @@
       flex-shrink: 0;
     }
 
+    /* ССЫЛКА НА ТЕЛЕГРАМ-КАНАЛ */
+    .tg-channel-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 18px;
+      padding: 10px 20px;
+      background: #FFFFFF;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .tg-channel-banner a {
+      color: #2787F5;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin-left: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .tg-channel-banner a:hover {
+      color: var(--brand-orange);
+    }
+
     /* ПОДВАЛ */
     .footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 20px;
+      margin-top: 14px;
       padding: 16px 28px;
       background: #FFFFFF;
       border-radius: 18px;
@@ -494,11 +564,6 @@
     }
 
     @media (max-width: 768px) {
-      .banner-stream {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
       .music-summary {
         flex-direction: column;
         align-items: flex-start;
@@ -539,20 +604,17 @@
       <span>Начало регистрации гостей (<a href="https://prorost.timepad.ru/event/4142365/" target="_blank" rel="noopener noreferrer">предварительная онлайн-регистрация обязательна</a>)</span>
     </div>
 
-    <!-- БАННЕР ОНЛАЙН-ТРАНСЛЯЦИИ -->
-    <div class="banner-event banner-stream">
-      <div style="display: flex; align-items: center; gap: 14px;">
-        <span class="banner-time" style="color: #1A69D2;">11:40</span>
-        <span>Прямой эфир фестиваля</span>
-      </div>
-      <a href="https://vkvideo.ru/live-235383253_456239028" target="_blank" rel="noopener noreferrer" class="banner-stream-link">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-        Не получается быть вживую — подключайтесь к эфиру! →
+    <!-- ДЕЛИКАТНЫЙ БЛОК ОНЛАЙН-ТРАНСЛЯЦИИ -->
+    <div class="banner-stream-subtle">
+      <span>Прямой эфир фестиваля • Начало в 11:40</span>
+      <a href="https://vkvideo.ru/live-235383253_456239028" target="_blank" rel="noopener noreferrer" class="stream-link">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Не получается быть вживую — подключайтесь к эфиру!
       </a>
     </div>
 
     <div class="banner-event banner-intro" style="margin-bottom: 20px;">
-      <span class="banner-time">11:30 – 11:50</span>
+      <span class="banner-time">11:40 – 12:00</span>
       <span>Вступительное слово организаторов и Притча «Адам и Ева» от <strong>Галины Еде</strong></span>
     </div>
 
@@ -622,22 +684,41 @@
                 <div class="event-author">Валерия Александрова, Вереск Алена</div>
               </div>
             </td>
-            <td>
-              <div class="event-card">
-                <div class="event-time-badge">12:00 – 13:20</div>
-                <div class="event-title">«Автор Жизни»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Юлия Софийская</div>
+
+            <!-- СЕКЦИЯ 7: ОБЪЕДИНЕНЫ СЛОТЫ 12:00, 13:00 и 14:00 (rowspan=3) ДЛЯ РОВНОГО СТЫКА В СЕРЕДИНЕ 13:00-13:50 -->
+            <td rowspan="3" style="padding: 0; background: transparent; border: none;">
+              <div class="td-split-vertical">
+                <div class="sub-split-card">
+                  <div class="event-time-badge">12:00 – 13:20</div>
+                  <div class="event-title">«Автор Жизни»</div>
+                  <div class="event-type">Трансформационная игра</div>
+                  <div class="event-author">Юлия Софийская</div>
+                </div>
+                <div class="sub-split-card">
+                  <div class="event-time-badge">13:30 – 14:50</div>
+                  <div class="event-title">«Красный шатёр»</div>
+                  <div class="event-type">Трансформационная игра</div>
+                  <div class="event-author">Алена Ямуна</div>
+                </div>
               </div>
             </td>
-            <td>
-              <div class="event-card">
-                <div class="event-time-badge">12:00 – 13:20</div>
-                <div class="event-title">«Назад в будущее»</div>
-                <div class="event-type">Трансформационная игра по финансовым стратегиям</div>
-                <div class="event-author">Наталья Евдокимова</div>
+            <td rowspan="3" style="padding: 0; background: transparent; border: none;">
+              <div class="td-split-vertical">
+                <div class="sub-split-card">
+                  <div class="event-time-badge">12:00 – 13:20</div>
+                  <div class="event-title">«Назад в будущее»</div>
+                  <div class="event-type">Трансформационная игра по финансовым стратегиям</div>
+                  <div class="event-author">Наталья Евдокимова</div>
+                </div>
+                <div class="sub-split-card">
+                  <div class="event-time-badge">13:30 – 14:50</div>
+                  <div class="event-title">«Линии Рода»</div>
+                  <div class="event-type">Трансформационная игра</div>
+                  <div class="event-author">Людмила Потапова</div>
+                </div>
               </div>
             </td>
+
             <td class="td-time">12:00 – 12:50</td>
           </tr>
 
@@ -686,22 +767,7 @@
                 <div class="event-author">Наталья Виссарионова</div>
               </div>
             </td>
-            <td rowspan="2">
-              <div class="event-card">
-                <div class="event-time-badge">13:30 – 14:50</div>
-                <div class="event-title">«Красный шатер»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Алена Ямуна</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="event-card">
-                <div class="event-time-badge">13:30 – 14:50</div>
-                <div class="event-title">«Линии Рода»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Людмила Потапова</div>
-              </div>
-            </td>
+            <!-- Секция 7 занята rowspan=3 из предыдущей строки -->
             <td class="td-time">13:00 – 13:50</td>
           </tr>
 
@@ -742,6 +808,7 @@
                 <div class="event-type">Знакомство и общение</div>
               </div>
             </td>
+            <!-- Объединенный слот Секции 6 -->
             <td rowspan="2">
               <div class="event-card">
                 <div class="event-time-badge">14:30 – 15:50</div>
@@ -750,6 +817,7 @@
                 <div class="event-author">Оксана Галуха</div>
               </div>
             </td>
+            <!-- Секция 7 занята rowspan=3 -->
             <td class="td-time">14:00 – 14:50</td>
           </tr>
 
@@ -790,11 +858,12 @@
                 <div class="event-type">Знакомство и общение</div>
               </div>
             </td>
+            <!-- Секция 6 занята rowspan=2 -->
             <td>
               <div class="event-card">
                 <div class="event-time-badge">15:00 – 15:50</div>
                 <div class="event-title">Письменные практики</div>
-                <div class="event-type">Практика</div>
+                <div class="event-type">Арт-практика</div>
                 <div class="event-author">Лариса Плотникова</div>
               </div>
             </td>
@@ -993,6 +1062,15 @@
     <div class="banner-event banner-intro" style="background: #EFECE6; border-color: #797163; color: #433D35; margin-top: 16px;">
       <span class="banner-time">18:40 – 19:00</span>
       <span>Торжественное завершение фестиваля</span>
+    </div>
+
+    <!-- ТЕЛЕГРАМ-КАНАЛ ФЕСТИВАЛЯ -->
+    <div class="tg-channel-banner">
+      <span>Подробнее о фестивале «Территория Ресурса» и о наших практиках — в Telegram:</span>
+      <a href="https://t.me/doroga_dobra_mos" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        @doroga_dobra_mos
+      </a>
     </div>
 
     <!-- ПОДВАЛ -->
