@@ -279,7 +279,7 @@
       letter-spacing: -0.2px;
     }
 
-    /* КОНТЕЙНЕР ДЛЯ ДВУХ РАВНЫХ БЛОКОВ В 7 СЕКЦИИ НА 3 СЛОТА */
+    /* КОНТЕЙНЕР ДЛЯ РАВНЫХ БЛОКОВ В 6 И 7 СЕКЦИЯХ НА 3 СЛОТА */
     .td-split-container {
       display: flex;
       flex-direction: column;
@@ -772,14 +772,25 @@
                 <div class="event-type">Знакомство и общение</div>
               </div>
             </td>
-            <td>
-              <div class="event-card">
-                <div class="event-time-badge">13:00 – 14:20</div>
-                <div class="event-title">Игра Лила</div>
-                <div class="event-type">Игра самопознания</div>
-                <div class="event-author">Наталья Виссарионова</div>
+
+            <!-- СЕКЦИЯ 6: ОБЪЕДИНЕНЫ СЛОТЫ 13:00, 14:00 и 15:00 (rowspan=3) ДЛЯ РОВНОГО ДЕЛЕНИЯ НА 2 ОДИНАКОВЫХ БЛОКА ПО ВЫСОТЕ -->
+            <td rowspan="3" style="padding: 0; background: transparent; border: none; height: 1px;">
+              <div class="td-split-container">
+                <div class="sub-split-card-half">
+                  <div class="event-time-badge">13:00 – 14:20</div>
+                  <div class="event-title">Игра Лила</div>
+                  <div class="event-type">Игра самопознания</div>
+                  <div class="event-author">Наталья Виссарионова</div>
+                </div>
+                <div class="sub-split-card-half">
+                  <div class="event-time-badge">14:30 – 15:50</div>
+                  <div class="event-title">«Лаборатория Харизмы»</div>
+                  <div class="event-type">Трансформационная игра</div>
+                  <div class="event-author">Оксана Галуха</div>
+                </div>
               </div>
             </td>
+
             <!-- Секция 7 занята rowspan=3 -->
             <td class="td-time">13:00 – 13:50</td>
           </tr>
@@ -821,15 +832,7 @@
                 <div class="event-type">Знакомство и общение</div>
               </div>
             </td>
-            <!-- Секция 6: объединенная ячейка на 2 слота -->
-            <td rowspan="2">
-              <div class="event-card">
-                <div class="event-time-badge">14:30 – 15:50</div>
-                <div class="event-title">«Лаборатория Харизмы»</div>
-                <div class="event-type">Трансформационная игра</div>
-                <div class="event-author">Оксана Галуха</div>
-              </div>
-            </td>
+            <!-- Секция 6 занята rowspan=3 -->
             <!-- Секция 7 занята rowspan=3 -->
             <td class="td-time">14:00 – 14:50</td>
           </tr>
@@ -871,7 +874,7 @@
                 <div class="event-type">Знакомство и общение</div>
               </div>
             </td>
-            <!-- Секция 6 занята rowspan=2 -->
+            <!-- Секция 6 занята rowspan=3 -->
             <td>
               <div class="event-card">
                 <div class="event-time-badge">15:00 – 15:50</div>
